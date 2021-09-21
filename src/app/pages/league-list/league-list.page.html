@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ligas de Futbol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <ion-list>
+    <ion-item *ngFor="let itemL of leagues">
+        <ion-avatar slot="start">
+          <img src="{{itemL['Logo de la Liga']}}" >
+        </ion-avatar>
+        <ion-avatar slot="End">
+          <ion-icon name="Search OutLine"></ion-icon>
+        </ion-avatar>
+        <ion-card-content>
+          <ion-card-title>
+            LIGA: {{itemL['Nombre De La Liga']}}
+          </ion-card-title>
+        <p>
+          {{itemL.Identificador}}
+        </p>
+        </ion-card-content>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll threshold="100%" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando datos de Ligas...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-fab *ngIf="backTop" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="gotoTop()">
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

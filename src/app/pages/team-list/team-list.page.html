@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Equipos de Futbol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="content" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+    <ion-card *ngFor="let itemT of teams">
+      <img src="{{itemT['Logo del Equipo']}}"/>
+      <ion-card-header>
+        <ion-card-title>EQUIPO: {{itemT['Nombre del equipo']}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Id: {{itemT.id}}</p>
+        <p>Liga: {{itemT.Liga}}</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-infinite-scroll threshold="100%" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando datos de Equipos...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <ion-fab *ngIf="backTop" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="gotoTop()">
+        <ion-icon name="chevron-up-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "playF",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

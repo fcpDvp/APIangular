@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Jugadores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <ion-list>
+    <ion-card>
+      <ion-item *ngFor="let itemP of players">
+        <ion-card-header>
+          <img src="{{itemP.Avatar}}" >
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>
+            {{itemP['Nombre del Jugador']}}
+          </ion-card-title>
+        <p>Id: {{itemP.id}}</p>
+         <p>TeamId: {{itemP.teamId}}</p>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+  <ion-infinite-scroll threshold="100%" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando datos de Jugadores...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-fab *ngIf="backTop" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="gotoTop()">
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
