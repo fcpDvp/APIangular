@@ -14,4 +14,8 @@ export class TeamService {
     return this.http.get(`${environment.playFb.baseUrl}/teams?offset=${offset}&limit=25`);
 
   }
+  getEquipos(offset = 0){
+    return this.http.get(`${environment.playFb.baseUrl}/teams?offset=${offset}&limit=25`);
+
+  }
 }

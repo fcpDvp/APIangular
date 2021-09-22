@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'team-list',//'folder/Inbox',
+    redirectTo: 'league-list',
     pathMatch: 'full'
   },
   {
@@ -34,6 +34,18 @@ const routes: Routes = [
   {
     path: 'player-details',
     loadChildren: () => import('./pages/player-details/player-details.module').then( m => m.PlayerDetailsPageModule)
+  },
+  {
+    path: 'league-save',
+    loadChildren: () => import('./pages/league-save/league-save.module').then( m => m.LeagueSavePageModule)
+  },
+  {
+    path: 'league-save/:id',
+    loadChildren: () => import('./pages/league-save/league-save.module').then( m => m.LeagueSavePageModule)
+  },
+  {
+    path: 'team-new',
+    loadChildren: () => import('./pages/team-new/team-new.module').then( m => m.TeamNewPageModule)
   },
 
 ];

@@ -1,6 +1,6 @@
 export class Equipo{
-  ['Nombre Del Equipo']: string;
-  ['Id']: string;
-  ['Logo']: string;
+  ['Nombre del equipo']: string;
+  ['id']: string;
+  ['Logo del Equipo']: string;
   ['Liga']: string;
 }

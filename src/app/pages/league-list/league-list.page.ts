@@ -11,8 +11,6 @@ import { IonContent, Platform } from '@ionic/angular';
 export class LeagueListPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
   backTop: boolean;
-  //@Input() lgI: string;
-  //@Output() lgO: Liga[];
   leagues: any[]=[];
   offset=0;
   constructor(private leagueApi: LeagueService, private platform: Platform) { }
@@ -39,5 +37,9 @@ export class LeagueListPage implements OnInit {
   }
   gotoTop(){
     this.content.scrollToTop(1000);
+  }
+
+  filtrarEquipos(idL: string, liga: string){
+    console.log(idL);
   }
 }

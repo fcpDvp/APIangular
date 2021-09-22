@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>league-details</ion-title>
+    <ion-title>EQUIPOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <div class="container">
+          <ion-button [routerLink]="['/team-new']"  routerLinkActive="router-link-active"  size="small" expand="block" fill="outline" shape="round">
+            Nuevo Equipo
+          </ion-button>
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">LOGO</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">ID</th>
+              <th scope="col">LIGA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let itemT of teams;let i = index" (click)="nuevoEquipo(itemT.id)">
+              <th scope="row">{{i + 1}}</th>
+              <td><img src="{{itemT['Logo del Equipo']}}" height="100%" ></td>
+              <td>{{itemT['Nombre del equipo']}}</td>
+              <td>{{itemT.id}}</td>
+              <td>{{itemT.Liga}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
