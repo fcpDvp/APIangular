@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
 import { Liga } from 'src/app/class/league';
 import { IonContent, Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-league-list',
@@ -12,8 +13,10 @@ export class LeagueListPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
   backTop: boolean;
   leagues: any[]=[];
+  lId: string;
+  lName: string;
   offset=0;
-  constructor(private leagueApi: LeagueService, private platform: Platform) { }
+  constructor(private leagueApi: LeagueService, private platform: Platform, private router: Router) { }
   ngOnInit() { this.leagueApi.getLeagueList().subscribe((l: any)=>{
     this.leagues=l;
     console.log(this.leagues);
@@ -39,7 +42,7 @@ export class LeagueListPage implements OnInit {
     this.content.scrollToTop(1000);
   }
 
-  filtrarEquipos(idL: string, liga: string){
-    console.log(idL);
+  filtroEquipos(idL: string, nL: string){
+    this.router.navigate(['league-details', idL, nL]);
   }
 }

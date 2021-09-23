@@ -20,11 +20,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/team-list/team-list.module').then( m => m.TeamListPageModule)
   },
   {
+    path: 'player-list/:IdP/:nP',
+    loadChildren: () => import('./pages/player-list/player-list.module').then( m => m.PlayerListPageModule)
+  },
+  {
     path: 'player-list',
     loadChildren: () => import('./pages/player-list/player-list.module').then( m => m.PlayerListPageModule)
   },
   {
-    path: 'league-details',
+    path: 'league-details/:idL/:nL',
     loadChildren: () => import('./pages/league-details/league-details.module').then( m => m.LeagueDetailsPageModule)
   },
   {
@@ -47,6 +51,11 @@ const routes: Routes = [
     path: 'team-new',
     loadChildren: () => import('./pages/team-new/team-new.module').then( m => m.TeamNewPageModule)
   },
+  {
+    path: 'team-edit',
+    loadChildren: () => import('./pages/team-edit/team-edit.module').then( m => m.TeamEditPageModule)
+  },
+
 
 ];
 

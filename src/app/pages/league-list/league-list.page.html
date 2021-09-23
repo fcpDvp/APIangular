@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>LIGAS DE FUTBOL</ion-title>
+    <ion-title>SOCCER LEAGUES</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <ion-list>
-    <ion-item *ngFor="let itemL of leagues;">
+    <ion-item *ngFor="let itemL of leagues" (click)="filtroEquipos(itemL.Identificador, itemL['Nombre De La Liga'])">
         <ion-avatar slot="start">
           <img src="{{itemL['Logo de la Liga']}}" height="100%" >
         </ion-avatar>
@@ -20,9 +20,6 @@
         <p>Identificador: {{itemL.Identificador}}</p>
         <ion-button [routerLink]="['/league-save']" routerLinkActive="router-link-active"  size="small" expand="block" fill="outline" shape="round">
           Editar
-        </ion-button>
-        <ion-button [routerLink]="['/league-details']" routerLinkActive="router-link-active" expand="block" fill="outline" shape="round">
-          Ver Equipos
         </ion-button>
         </ion-card-content>
     </ion-item>

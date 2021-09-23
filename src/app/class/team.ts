@@ -1,5 +1,5 @@
 export class Equipo{
-  ['Nombre del equipo']: string;
+  ['Nombre']: string;
   ['id']: string;
   ['Logo del Equipo']: string;
   ['Liga']: string;

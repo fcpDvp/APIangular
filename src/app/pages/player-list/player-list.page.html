@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista de Jugadores</ion-title>
+    <ion-title>PLAYERS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +10,12 @@
       <ion-item *ngFor="let itemP of players">
         <ion-card-header>
           <img src="{{itemP.Avatar}}" >
+          <ion-button [routerLink]="['/team-edit']" routerLinkActive="router-link-active"  size="small" expand="block" fill="outline" shape="round">
+            Cambiar Foto
+          </ion-button>
+          <ion-button [routerLink]="['/team-edit']" routerLinkActive="router-link-active"  size="small" expand="block" fill="outline" shape="round">
+            Editar Kardek
+          </ion-button>
         </ion-card-header>
         <ion-card-content>
           <ion-card-title>
